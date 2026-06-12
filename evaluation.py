@@ -23,13 +23,18 @@ from dotenv import load_dotenv
 load_dotenv()
 
 TOKEN = os.getenv("GITHUB_TOKEN")
+if not TOKEN:
+    raise RuntimeError(
+        "GITHUB_TOKEN environment variable is required. "
+        "Set it in your .env file (local) or as a deployment secret."
+    )
+
 BASE_URL = "https://api.github.com"
 
 headers = {
     "Accept": "application/vnd.github+json",
+    "Authorization": f"Bearer {TOKEN}",
 }
-if TOKEN:
-    headers["Authorization"] = f"Bearer {TOKEN}"
 
 
 # Each role defines what languages and keywords we look for in repos.
