@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "StackMatch — GitHub Candidate Evaluator",
   description:
     "AI-powered ranking of GitHub profiles for engineering roles. Analyse activity, stack fit, and project quality in seconds.",
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
